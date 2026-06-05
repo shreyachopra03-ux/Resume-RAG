@@ -2,15 +2,15 @@ import fs from "fs";
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const pdf = require("pdf-parse");
+const pdfParse = require("pdf-parse");
 
-export async function parsePDF (filePath: string): Promise<string | undefined>{
+export async function parsePDF (filePath: string): Promise<string | undefined> {
 
     try {
         const dataBuffer = fs.readFileSync(filePath);
         console.log(dataBuffer);
 
-        const parsedData = await pdf(dataBuffer);
+        const parsedData = await pdfParse(dataBuffer);
         console.log(parsedData);
 
         return parsedData.text;

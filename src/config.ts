@@ -1,13 +1,13 @@
-import dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
+import { ChatGroq } from "@langchain/groq";
 
-// import "dotenv/config";
+const llm = new ChatGroq ({
+  model: "llama-3.1-8b-instant",
+  apiKey: process.env.GROQ_API_KEY ?? "",
+});
 
-const config = {
-    openaiApiKey : process.env.OPENAI_API_KEY
-}
 
-if(!config.openaiApiKey) {
-    throw new Error("OPENAI_API_KEY not found in your .env file !");
+if(!llm.apiKey) {
+    throw new Error("GROQ_API_KEY not found in your .env file !");
 }
 
