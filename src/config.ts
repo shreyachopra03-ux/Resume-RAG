@@ -9,5 +9,5 @@ const llm = new ChatGroq ({
 
 if(!llm.apiKey) {
     throw new Error("GROQ_API_KEY not found in your .env file !");
-}
+};
 
